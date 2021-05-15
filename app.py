@@ -53,8 +53,8 @@ params_ = {"key":["2013-07-06 17:18:00.000000000"],
             }
 
 if st.button(f'Predict taxi fare'):
-    URL_API_ = "https://taxifareapi-mmmvoa6ccq-ew.a.run.app/predict_fare"
-    # URL_API_ = "https://taxifare.lewagon.ai/predict_fare"
+    # URL_API_ = "https://taxifareapi-mmmvoa6ccq-ew.a.run.app/predict_fare"
+    URL_API_ = "https://taxifare.lewagon.ai/predict_fare"
     res_ = requests.get(URL_API_, params=params_).json()
     cols[2].markdown(f"""
                     ## Predicted taxi fare
