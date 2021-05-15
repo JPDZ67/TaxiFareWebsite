@@ -36,10 +36,19 @@ pickup_datetime = f"{pickup_date} {pickup_time} UTC"
 # dropoff_latitude=40.7699
 # dropoff_longitude=-73.9752
 
-pickup_latitude = cols[0].number_input('Pickup latitude',40.7482)
-pickup_longitude = cols[0].number_input('Pickup longitude',-73.985)
-dropoff_latitude = cols[1].number_input('Dropoff latitude',40.7482)
-dropoff_longitude = cols[1].number_input('Dropoff longitude',-73.9752)
+cols[0].markdown(f"""
+    ## Pick up
+    """)
+
+pickup_latitude = cols[0].number_input('Pick up latitude',40.7482)
+pickup_longitude = cols[0].number_input('Pick up longitude',-73.985)
+
+cols[1].markdown(f"""
+    ## Drop off
+    """)
+
+dropoff_latitude = cols[1].number_input('Drop off latitude',40.7482)
+dropoff_longitude = cols[1].number_input('Drop off longitude',-73.9752)
     
 params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "pickup_datetime": [pickup_datetime],
@@ -50,8 +59,11 @@ params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "passenger_count": [int(passenger_count)]
             }
 
-if cols[2].button('Predict taxi fare',):
+if st.button('Predict taxi fare',):
     res_ = requests.get(URL_API_, params=params_).json()
+    cols[2].markdown(f"""
+                    ## Predicted taxi fare
+                    """)
     cols[2].write(f"{round(res_['prediction'],2)} $")
 
 if st.checkbox('Show params'):
