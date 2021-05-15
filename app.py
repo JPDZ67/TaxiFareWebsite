@@ -40,15 +40,15 @@ cols[0].markdown(f"""
     ## Pick up
     """)
 
-pickup_latitude = cols[0].number_input('Pick up latitude',40.7482)
-pickup_longitude = cols[0].number_input('Pick up longitude',-73.985)
+pickup_latitude = cols[0].number_input('Pick up latitude',value=40.7482)
+pickup_longitude = cols[0].number_input('Pick up longitude',value=-73.985)
 
 cols[1].markdown(f"""
     ## Drop off
     """)
 
-dropoff_latitude = cols[1].number_input('Drop off latitude',40.7482)
-dropoff_longitude = cols[1].number_input('Drop off longitude',-73.9752)
+dropoff_latitude = cols[1].number_input('Drop off latitude',value=40.7482)
+dropoff_longitude = cols[1].number_input('Drop off longitude',value=-73.9752)
     
 params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "pickup_datetime": [pickup_datetime],
