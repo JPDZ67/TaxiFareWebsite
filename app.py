@@ -31,10 +31,8 @@ passenger_count = st.sidebar.slider('', 1, 5, 1)
 
 pickup_datetime = f"{pickup_date} {pickup_time} UTC"
 
-# pickup_latitude=40.7482
-# pickup_longitude=-73.985
-# dropoff_latitude=40.7699
-# dropoff_longitude=-73.9752
+st.write(f"Taxi for {passenger_count} on {pickup_date} at {pickup_time}")
+st.write("** If necessary, go to side bar to change it **")
 
 cols[0].markdown(f"""
     ## Pick up
