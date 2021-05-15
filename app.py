@@ -27,10 +27,12 @@ pickup_datetime = f"{pickup_date} {pickup_time} UTC"
 # dropoff_latitude=40.7699
 # dropoff_longitude=-73.9752
 
-pickup_latitude = st.number_input('Pickup latitude',40.7482)
-pickup_longitude = st.number_input('Pickup longitude',-73.985)
-dropoff_latitude = st.number_input('Dropoff latitude',40.7482)
-dropoff_longitude = st.number_input('Dropoff longitude',-73.9752)
+cols = st.beta_columns(2)
+
+cols[0].pickup_latitude = st.number_input('Pickup latitude',40.7482)
+cols[0].pickup_longitude = st.number_input('Pickup longitude',-73.985)
+cols[1].dropoff_latitude = st.number_input('Dropoff latitude',40.7482)
+cols[1].dropoff_longitude = st.number_input('Dropoff longitude',-73.9752)
     
 params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "pickup_datetime": [pickup_datetime],
@@ -41,7 +43,7 @@ params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "passenger_count": [int(passenger_count)]
             }
 
-if st.button('Predict taxi fare'):
+if st.button('Predict taxi fare',):
     res_ = requests.get(URL_API_, params=params_).json()
     st.write(f"Taxi fare prediction is {round(res_['prediction'],2)} $")
 
