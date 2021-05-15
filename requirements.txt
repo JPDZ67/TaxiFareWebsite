@@ -1,0 +1,5 @@
+pip>=9
+setuptools>=26
+streamlit
+datetime
+requests
