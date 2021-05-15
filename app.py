@@ -10,7 +10,7 @@ import requests
 st.sidebar.markdown(f"""
     # Request for a taxi in NY 
 
-    ## When and how many ?
+    ## When and how many passengers?
     """)
 
 URL_API_ = "https://taxifareapi-mmmvoa6ccq-ew.a.run.app/predict_fare"
