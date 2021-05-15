@@ -3,7 +3,7 @@ from datetime import date, datetime
 import requests
 
 '''
-# Taxi fare prediction
+# Taxi fare prediction challenge
 ## From where to where ?
 '''
 
@@ -29,10 +29,10 @@ pickup_datetime = f"{pickup_date} {pickup_time} UTC"
 
 cols = st.beta_columns(2)
 
-cols[0].pickup_latitude = st.number_input('Pickup latitude',40.7482)
-cols[0].pickup_longitude = st.number_input('Pickup longitude',-73.985)
-cols[1].dropoff_latitude = st.number_input('Dropoff latitude',40.7482)
-cols[1].dropoff_longitude = st.number_input('Dropoff longitude',-73.9752)
+pickup_latitude = cols[0].st.number_input('Pickup latitude',40.7482)
+pickup_longitude = cols[0].st.number_input('Pickup longitude',-73.985)
+dropoff_latitude = cols[1].st.number_input('Dropoff latitude',40.7482)
+dropoff_longitude = cols[1].st.number_input('Dropoff longitude',-73.9752)
     
 params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "pickup_datetime": [pickup_datetime],
