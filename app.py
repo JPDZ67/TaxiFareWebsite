@@ -3,16 +3,12 @@ from datetime import date, datetime
 import requests
 
 st.set_page_config(layout='wide')
+# passenger_count = 1; pickup_date = date.today(); pickup_time = datetime.now() 
 
-'''
+st.markdown (f"""
 # Taxi fare prediction challenge
 ## From where to where ?
-'''
-
-URL_API_ = "https://taxifareapi-mmmvoa6ccq-ew.a.run.app/predict_fare"
-# URL_API_ = "https://taxifare.lewagon.ai/predict_fare"
-
-cols = st.beta_columns(3)
+""")
 
 st.sidebar.markdown(f"""
     # Request for a taxi in NY 
@@ -31,8 +27,7 @@ passenger_count = st.sidebar.slider('', 1, 5, 1)
 
 pickup_datetime = f"{pickup_date} {pickup_time} UTC"
 
-st.write(f"Taxi for {passenger_count} on {pickup_date} at {pickup_time}")
-st.write("** If necessary, go to side bar to change it **")
+cols = st.beta_columns(3)
 
 cols[0].markdown(f"""
     ## Pick up
@@ -57,12 +52,17 @@ params_ = {"key":["2013-07-06 17:18:00.000000000"],
             "passenger_count": [int(passenger_count)]
             }
 
-if st.button('Predict taxi fare',):
+if st.button(f'Predict taxi fare'):
+    URL_API_ = "https://taxifareapi-mmmvoa6ccq-ew.a.run.app/predict_fare"
+    # URL_API_ = "https://taxifare.lewagon.ai/predict_fare"
     res_ = requests.get(URL_API_, params=params_).json()
     cols[2].markdown(f"""
                     ## Predicted taxi fare
                     """)
-    cols[2].write(f"{round(res_['prediction'],2)} $")
+    cols[2].write(f"**{round(res_['prediction'],2)} $**")
+
+st.write(f"### **Taxi for {passenger_count} on {pickup_date} at {pickup_time.hour}:{pickup_time.minute}** \
+         > *If necessary, go to side bar to change this information *")
 
 if st.checkbox('Show params'):
     st.write(params_)
