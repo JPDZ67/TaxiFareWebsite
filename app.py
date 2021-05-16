@@ -73,9 +73,9 @@ with container_:
     date_ = pickup_date.strftime("%d-%b-%Y")
     time_ = pickup_time.strftime("%H:%M")
 
-    st.markdown(f"## **Taxi fare predicion for {passenger_count} passenger(s) on {date_} at {time_}**")
+    st.markdown(f"## **Taxi fare prediction for {passenger_count} passenger(s) on {date_} at {time_}**")
 
-    st.markdown("*-> Number of passengers and/or pickup information can be changed using the side bar *")
+    st.markdown("*-> Number of passengers and/or pick up time can be changed using the side bar *")
 
 
 
